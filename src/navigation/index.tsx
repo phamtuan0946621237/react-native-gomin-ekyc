@@ -1,7 +1,7 @@
 
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import IdentifyTutorial from '../screen/identify-tutorial';
+import InvestTutorial from '../screen/invest-tutorial';
 const Stack: any = createStackNavigator<any>();
 
 export default () => {
@@ -11,9 +11,9 @@ export default () => {
         headerShown: false,
       }}
       initialRouteName={
-        "IdentifyTutorial"
+        "InvestTutorial"
       }>
-      <Stack.Screen name="IdentifyTutorial" component={IdentifyTutorial} options={{ title: 'IdentifyTutorial' }} />
+      <Stack.Screen name="InvestTutorial" component={InvestTutorial} options={{ title: 'InvestTutorial' }} />
     </Stack.Navigator>
   )
 }

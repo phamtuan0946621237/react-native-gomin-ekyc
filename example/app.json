@@ -1,0 +1,22 @@
+{
+  "name": "react-native-gomin-ekyc-example",
+  "displayName": "GominEkyc Example",
+  "expo": {
+    "name": "react-native-gomin-ekyc-example",
+    "slug": "react-native-gomin-ekyc-example",
+    "description": "Example app for react-native-gomin-ekyc",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

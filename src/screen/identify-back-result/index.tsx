@@ -9,7 +9,7 @@ import { useMutation } from 'react-fetching-library';
 import {Image,Platform,StatusBar} from 'react-native';
 import { showMessage } from 'react-native-flash-message';
 import { useSelector } from 'react-redux';
-import { CommonContext } from 'src/CommonProvider';
+import { CommonContext } from '../../CommonProvider';
 import { background_identify_result, back_white_ic } from '../../../assets';
 import { checkIdentify } from '../../api/actions/ekyc';
 import { Button } from '../../components/app';

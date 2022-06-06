@@ -37,7 +37,7 @@ const step = [
   {
     title: 'Kích hoạt ví',
     icon: logo_payme_ic,
-    selected: false,
+    selected: true,
     item: ['Nhập mã OTP', "Tạo mật khẩu ví"],
   },
   {

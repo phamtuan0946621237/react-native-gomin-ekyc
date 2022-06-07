@@ -1,5 +1,5 @@
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useCallback } from 'react';
 import { ClientContextProvider } from 'react-fetching-library';
 import { ActivityIndicator } from 'react-native';
 import ModalApp from 'react-native-modal';
@@ -41,7 +41,8 @@ const AppLoading = () => {
 };
 
 interface Propype {
-  token: string
+  token: string,
+  onDoneStepFullEkyc ?: () => void
 }
 const App = (props: Propype) => {
   const [state, setState] = useState(props?.token)
@@ -50,10 +51,14 @@ const App = (props: Propype) => {
     setState(props?.token)
   }, [props?.token])
 
+  const _onDoneStepFullEkyc = useCallback(() => {
+    if (!!props?.onDoneStepFullEkyc) props?.onDoneStepFullEkyc()
+  },[props])
+
   return (
     <>
       <ClientContextProvider client={Client}>
-        <CommonProvider token={state} onDoneStepFullEkyc={() => console.log("hehehehe")}>
+        <CommonProvider token={state} onDoneStepFullEkyc={_onDoneStepFullEkyc}>
           <Navigation />
         </CommonProvider>
       </ClientContextProvider>
@@ -62,9 +67,9 @@ const App = (props: Propype) => {
   )
 }
 
-export const ekyc = (token: string) => {
+export const ekyc = (token: string,onDoneStepFullEkyc?: () => void) => {
   // console.log("token_app_lib ::::",token)
   return (
-    <App token={token} />
+    <App token={token} onDoneStepFullEkyc={onDoneStepFullEkyc}/>
   )
 }

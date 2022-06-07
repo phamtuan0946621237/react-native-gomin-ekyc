@@ -81,7 +81,7 @@ export default () => {
         ...ekyc,
         image_video: {
           type: "IMAGE_VIDEO",
-          img: data_info_ekyc?.imgVideo?.current?.imageStraightFile
+          img: data_info_ekyc?.imgVideo
         },
       });
       console.log(
@@ -139,7 +139,7 @@ export default () => {
         />
         <UIView style={style.info}>
           <UILabel style={styleText.blackBlod16}>Thông tin cá nhân</UILabel>
-          {infoFirst.map((item: InfoType, index: number) => {
+          {/* {infoFirst.map((item: InfoType, index: number) => {
             return (
               <UIView
                 style={{ marginTop: 24, flexDirection: 'row' }}
@@ -156,7 +156,7 @@ export default () => {
                 </UILabel>
               </UIView>
             );
-          })}
+          })} */}
         </UIView>
 
         <UIView style={{ marginTop: 16, marginBottom: 16 + TabBarSize.paddingBottom, flexDirection: 'row', alignItems: 'center' }}>

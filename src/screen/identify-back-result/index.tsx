@@ -6,12 +6,11 @@
 import { StackActions, useNavigation, useRoute } from '@react-navigation/native';
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useMutation } from 'react-fetching-library';
-import {Image,Platform,StatusBar} from 'react-native';
+import { Image, Platform, StatusBar } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
-import { useSelector } from 'react-redux';
-import { CommonContext } from '../../CommonProvider';
 import { background_identify_result, back_white_ic } from '../../../assets';
 import { checkIdentify } from '../../api/actions/ekyc';
+import { CommonContext } from '../../CommonProvider';
 import { Button } from '../../components/app';
 import Header from '../../components/core/header';
 import { colors, styleText } from '../../theme';
@@ -27,6 +26,7 @@ interface IInfoBackImg {
 export default () => {
   const navigation = useNavigation();
   const style = createStyles();
+  const { access_token, ekyc } = useContext(CommonContext)
   const route = useRoute().params as {
     image_back: {
       type?: string,
@@ -34,7 +34,6 @@ export default () => {
     }
   };
   const { loading, mutate, payload } = useMutation(checkIdentify);
-  const { ekyc } = useSelector((state: any) => state.ekyc);
   const [nextStep, setNextStep] = useState<boolean>();
   const { setEkyc, saveInfoEkyc } = useContext(CommonContext)
   useEffect(() => {
@@ -111,7 +110,10 @@ export default () => {
       type: 'multipart/form-data'
     });
 
-    let { payload } = await mutate(request);
+    let { payload } = await mutate({
+      ...request,
+      token: access_token
+    });
     switch (payload?.success) {
       case true:
         // filumAnalytics.track('OCR Back Succeeded');
@@ -149,7 +151,7 @@ export default () => {
       default:
         break;
     }
-  }, [route, ekyc]);
+  }, [route, ekyc, access_token]);
 
   return (
     <UIView style={style.container}>

@@ -6,7 +6,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback, useState } from 'react';
 import { Animated, Image, StatusBar, useWindowDimensions } from 'react-native';
-import { useSelector } from 'react-redux';
 import {
   back_black_ic,
   cmnd_ic,
@@ -49,7 +48,6 @@ const step = [
 ];
 
 export default () => {
-  const { faceId } = useSelector((state: any) => state.config)
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
   const style = createStyles();
@@ -63,7 +61,7 @@ export default () => {
 
   const _onClickLinked = useCallback(async () => {
     navigation.navigate('IdentifyTutorial')
-  }, [faceId])
+  }, [])
 
   const _handleScroll = useCallback((event: any) => {
     if (event.nativeEvent.contentOffset.y <= 0) {

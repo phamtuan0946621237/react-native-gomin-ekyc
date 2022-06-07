@@ -8,10 +8,9 @@ import React, { useCallback, useContext, useEffect, useMemo, useState } from 're
 import { useMutation } from 'react-fetching-library';
 import { Image, Platform, StatusBar } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
-import { useSelector } from 'react-redux';
-import { CommonContext } from '../../CommonProvider';
 import { background_identify_result, back_white_ic } from '../../../assets';
 import { checkIdentify } from '../../api/actions/ekyc';
+import { CommonContext } from '../../CommonProvider';
 import { Button } from '../../components/app';
 import Header from '../../components/core/header';
 import { colors, styleText } from '../../theme';
@@ -28,14 +27,13 @@ export default () => {
   //variable
   const navigation = useNavigation()
   const style = createStyles()
-  const { setEkyc, saveInfoEkyc } = useContext(CommonContext)
+  const { setEkyc, saveInfoEkyc, access_token, ekyc } = useContext(CommonContext)
   const route = useRoute().params as {
     image_front: {
       type?: string,
       img?: string
     }
   }
-  const { ekyc } = useSelector((state: any) => state.ekyc)
   const { loading, mutate, payload } = useMutation(checkIdentify)
   const [nextStep, setNextStep] = useState<boolean>();
 
@@ -112,7 +110,10 @@ export default () => {
       type: 'multipart/form-data'
     });
 
-    let { payload } = await mutate(request)
+    let { payload } = await mutate({
+      ...request,
+      token: access_token
+    })
     switch (payload?.success) {
       case true:
         const { ho_ten, ngay_sinh, id_card, que_quan, ho_khau_thuong_tru, gioi_tinh, ngay_het_han, quoc_tich } = payload?.data
@@ -150,7 +151,7 @@ export default () => {
       default:
         break
     }
-  }, [route, ekyc])
+  }, [route, ekyc, access_token])
 
   // layout
   const _buildItem = useCallback((label: string, title: string) => {

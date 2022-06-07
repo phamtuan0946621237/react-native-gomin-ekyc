@@ -14,31 +14,38 @@ type ContextProps = {
 
  interface EkycType {
   image_front?: {
-    img?: string,
-    type?: string
+    img?: any,
+    type?: any,
+    img_request : any
   },
   image_back?: {
-    img?: string,
-    type?: string
+    img?: any,
+    type?: any,
+    img_request : any
   },
   image_video?: {
-    img?: string,
-    type?: string
+    img?: any,
+    type?: any,
+    img_request : any
   }
 }
+
 
 const initStateEkyc : EkycType= {
     image_front: {
       img: undefined,
-      type: undefined
+      type: undefined,
+      img_request : undefined
     },
     image_back: {
       img: undefined,
-      type: undefined
+      type: undefined,
+      img_request : undefined
     },
     image_video: {
       img: undefined,
-      type: undefined
+      type: undefined,
+      img_request : undefined
     }
 }
 const initInfoEkyc = {

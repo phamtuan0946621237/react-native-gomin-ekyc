@@ -76,6 +76,8 @@ export const CommonProvider = ({ children, token }: any) => {
     })
   },[])
 
+  console.log("ekyc_context_libb ::",ekyc)
+
   return (
     <CommonContext.Provider
       value={{

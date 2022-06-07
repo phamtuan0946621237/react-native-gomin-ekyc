@@ -124,18 +124,12 @@ export default () => {
           ngay_het_han,
           quoc_tich
         }
+        console.log("data____FRONT ::::",data)
         if (!!saveInfoEkyc) saveInfoEkyc({
           type: 'front',
           data
         })
-        console.log("Phajmaklfnwelglk ::::::",{
-          ...ekyc,
-          image_front: {
-            type: "front_card",
-            img: payload?.data?.image_name,
-            img_request: route?.image_front.img
-          },
-        })
+       
         if (!!setEkyc) setEkyc({
           ...ekyc,
           image_front: {

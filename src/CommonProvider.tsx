@@ -63,6 +63,7 @@ export const CommonProvider = ({ children, token }: any) => {
     setEkyc(value)
   },[])
   const _saveInfoEkyc = useCallback((value) => {
+    console.log("value :::",value)
     setDataInfoEkyc(value)
   },[])
 

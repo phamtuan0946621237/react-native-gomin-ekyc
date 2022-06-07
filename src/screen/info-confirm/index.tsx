@@ -82,14 +82,17 @@ export default () => {
           img: data_info_ekyc?.imgVideo?.current?.imageStraightFile
         },
       });
-      setTimeout(() => {
-        navigation.reset({
-          index: 0,
-          routes: [{
-            name: 'ListProduct'
-          }]
-        })
-      }, 100)
+      console.log(
+        "DONE_LIB"
+      )
+      // setTimeout(() => {
+      //   navigation.reset({
+      //     index: 0,
+      //     routes: [{
+      //       name: 'ListProduct'
+      //     }]
+      //   })
+      // }, 100)
 
     } else {
       showMessage({

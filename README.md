@@ -105,9 +105,11 @@ lib ekyc
         - Thư viện là 1 stack và sử dụng : react-native-navigation
 
         - Hàm : ekyc(token,callback) => return Stack
-            - token : lấy token để call api ekyc
-            - callback : (value) => void => trả ra 1 hàm khi done toàn bộ luồng ekyc
-                => value : gồm connectToken + thông tin của ekyc
+            ## EkycStack variable
+            | variable | Type | Description |
+            :------------ |:---------------| :-----|
+            | **`token`** | `String` | truyền token để call đc toàn bộ api trong thư viện |
+            | **`callback`** | `void` | 1 callback function được gọi khi hoàn thành toàn bộ luồng ekyc |
 
 
 

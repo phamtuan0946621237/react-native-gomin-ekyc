@@ -23,8 +23,6 @@ export default () => {
     navigation.goBack()
   }, [])
 
-  console.log("ekyc_libbbbb :::",ekyc)
-
   return (
     <UIView style={{ flex: 1, backgroundColor: colors.white }}>
       <StatusBar

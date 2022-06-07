@@ -16,17 +16,17 @@ type ContextProps = {
   image_front?: {
     img?: any,
     type?: any,
-    img_request : any
+    img_request ?: any
   },
   image_back?: {
     img?: any,
     type?: any,
-    img_request : any
+    img_request ?: any
   },
   image_video?: {
     img?: any,
     type?: any,
-    img_request : any
+    img_request ?: any
   }
 }
 
@@ -66,7 +66,7 @@ export const CommonProvider = ({ children, token }: any) => {
     setDataInfoEkyc(value)
   },[])
 
-  console.log("ekyc_context_libb ::",ekyc)
+  console.log("data_info_ekyc_context_lib :::::",data_info_ekyc)
 
   return (
     <CommonContext.Provider

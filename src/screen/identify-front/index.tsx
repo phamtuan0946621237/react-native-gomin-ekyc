@@ -232,7 +232,7 @@ export default () => {
         alignItems: 'center', justifyContent: 'center'
       }}>
         <UIAnimationView
-          source={lottieLoading)}
+          source={lottieLoading}
           autoPlay
           loop style={{ width: 250, height: 250, alignSelf: 'center' }} />
       </UIView>

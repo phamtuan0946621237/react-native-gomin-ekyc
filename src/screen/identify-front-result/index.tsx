@@ -109,11 +109,9 @@ export default () => {
       name: `image.png`,
       type: 'multipart/form-data'
     });
-
-    let { payload } = await mutate({
-      ...request,
-      token: access_token
-    })
+    request.append("token", access_token);
+    console.log("request_front_lib :::",request)
+    let { payload } = await mutate(request)
     switch (payload?.success) {
       case true:
         const { ho_ten, ngay_sinh, id_card, que_quan, ho_khau_thuong_tru, gioi_tinh, ngay_het_han, quoc_tich } = payload?.data

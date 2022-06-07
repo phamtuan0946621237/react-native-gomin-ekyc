@@ -101,6 +101,7 @@ export default () => {
     if (!image) return;
     var request = new FormData();
     request.append('type', 'back_card');
+    request.append('token', access_token);
     request.append('image', {
       uri: Platform.select({
         ios: image,
@@ -110,10 +111,9 @@ export default () => {
       type: 'multipart/form-data'
     });
 
-    let { payload } = await mutate({
-      ...request,
-      token: access_token
-    });
+    
+
+    let { payload } = await mutate(request);
     switch (payload?.success) {
       case true:
         // filumAnalytics.track('OCR Back Succeeded');

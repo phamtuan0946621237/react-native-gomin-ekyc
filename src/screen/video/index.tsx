@@ -292,7 +292,7 @@ export default () => {
       {isShow === true &&
         <UIView style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0, justifyContent: 'center', alignItems: 'center' }}>
           <UILottieView
-            source={require("../../../../assets/lottie/count4.json")}
+            source={require("../../../assets/lottie/count4.json")}
             autoPlay
             loop
             style={{ width: width / 1.2 }}

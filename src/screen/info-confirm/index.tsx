@@ -4,7 +4,7 @@
  */
 
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import { useMutation } from 'react-fetching-library';
 import { Image, Linking, Platform, StatusBar } from 'react-native';
 import { showMessage } from 'react-native-flash-message';
@@ -15,14 +15,14 @@ import { Button } from '../../components/app';
 import Header from '../../components/core/header';
 import { colors, styleText } from '../../theme';
 import { UIBUtton, UILabel, UIScrollView, UIView } from '../../theme/element';
-import { showLoading, TabBarSize } from '../../util';
+import { calcFontSize, showLoading, TabBarSize } from '../../util';
 import Step from './step';
 import { createStyles } from './style';
 
-// interface InfoType {
-//   title: string;
-//   value: string;
-// }
+interface InfoType {
+  title: string;
+  value: string;
+}
 const MESSENGER = 'https://www.messenger.com/t/100352479230029/?messaging_source=source%3Apages%3Amessage_shortlink&source_id=1441792'
 export default () => {
   //variable
@@ -30,35 +30,35 @@ export default () => {
   const style = createStyles();
   const { ekyc, data_info_ekyc, access_token, setEkyc } = useContext(CommonContext)
   const { loading, mutate } = useMutation(checkVideoEkyc)
-  // const infoFirst: Array<InfoType> = useMemo(() => {
-  //   let { id_card, ho_ten, ngay_sinh, gioi_tinh, front_ngay_het_han, que_quan, ho_khau_thuong_tru } = data_info_ekyc?.imgFront || {};
-  //   let { dan_toc, ton_giao, ngay_cap, noi_cap, back_ngay_het_han, dac_diem_nhan_dang } = data_info_ekyc?.imgBack || {};
-  //   let dataInfo = [
-  //     { title: 'Số CMND / CCCD', value: id_card },
-  //     { title: 'Họ và tên', value: ho_ten },
-  //     { title: 'Ngày sinh', value: ngay_sinh },
-  //     { title: 'Giới tính', value: gioi_tinh },
-  //     { title: 'Dân tộc', value: dan_toc },
-  //     { title: 'Tôn giáo', value: ton_giao },
-  //     { title: 'Ngày cấp', value: ngay_cap },
-  //     { title: 'Nơi cấp', value: noi_cap },
-  //     { title: 'Ngày hết hạn', value: front_ngay_het_han || back_ngay_het_han },
-  //     { title: 'Quê quán', value: que_quan },
-  //     { title: 'Nơi thường trú', value: ho_khau_thuong_tru },
-  //     { title: 'Đặc điểm nhận dạng', value: dac_diem_nhan_dang },
-  //   ].filter(
-  //     (_info: any) => !!_info.value
-  //   )
+  const infoFirst: Array<InfoType> = useMemo(() => {
+    let { id_card, ho_ten, ngay_sinh, gioi_tinh, front_ngay_het_han, que_quan, ho_khau_thuong_tru } = data_info_ekyc?.imgFront || {};
+    let { dan_toc, ton_giao, ngay_cap, noi_cap, back_ngay_het_han, dac_diem_nhan_dang } = data_info_ekyc?.imgBack || {};
+    let dataInfo = [
+      { title: 'Số CMND / CCCD', value: id_card },
+      { title: 'Họ và tên', value: ho_ten },
+      { title: 'Ngày sinh', value: ngay_sinh },
+      { title: 'Giới tính', value: gioi_tinh },
+      { title: 'Dân tộc', value: dan_toc },
+      { title: 'Tôn giáo', value: ton_giao },
+      { title: 'Ngày cấp', value: ngay_cap },
+      { title: 'Nơi cấp', value: noi_cap },
+      { title: 'Ngày hết hạn', value: front_ngay_het_han || back_ngay_het_han },
+      { title: 'Quê quán', value: que_quan },
+      { title: 'Nơi thường trú', value: ho_khau_thuong_tru },
+      { title: 'Đặc điểm nhận dạng', value: dac_diem_nhan_dang },
+    ].filter(
+      (_info: any) => !!_info.value
+    )
 
-  //   return dataInfo
-  // }, [data_info_ekyc]);
+    return dataInfo
+  }, [data_info_ekyc]);
 
   // life cycle
   useEffect(() => {
     showLoading(loading)
   }, [loading])
 
-  console.log("data_info_ekyc?.imgVideo :::", data_info_ekyc?.imgVideo)
+  console.log("data_info_ekyc?.imgVideo :::",data_info_ekyc?.imgVideo)
 
   // action
   const _onClickUseImage = useCallback(async () => {
@@ -139,7 +139,7 @@ export default () => {
         />
         <UIView style={style.info}>
           <UILabel style={styleText.blackBlod16}>Thông tin cá nhân</UILabel>
-          {/* {infoFirst.map((item: InfoType, index: number) => {
+          {infoFirst.map((item: InfoType, index: number) => {
             return (
               <UIView
                 style={{ marginTop: 24, flexDirection: 'row' }}
@@ -156,7 +156,7 @@ export default () => {
                 </UILabel>
               </UIView>
             );
-          })} */}
+          })}
         </UIView>
 
         <UIView style={{ marginTop: 16, marginBottom: 16 + TabBarSize.paddingBottom, flexDirection: 'row', alignItems: 'center' }}>

@@ -5,11 +5,10 @@
 
 import { StackActions, useNavigation } from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
-import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Platform, StatusBar, useWindowDimensions } from 'react-native';
 import { RecordFaceView } from "react-native-ekyc-sdk";
 import { check, openSettings, PERMISSIONS, request, RESULTS } from "react-native-permissions";
-import { CommonContext } from '../../CommonProvider';
 import { face_left_ic, face_right_ic, face_straigth_ic } from '../../../assets';
 import { UIView } from '../../theme/element';
 import { StepVideoResponse } from '../../type/index';
@@ -26,7 +25,7 @@ export default () => {
   const { width } = useWindowDimensions()
   const navigation = useNavigation()
   const style = createStyles()
-  const { saveInfoEkyc,data_info_ekyc } = useContext(CommonContext)
+  // const { saveInfoEkyc,data_info_ekyc } = useContext(CommonContext)
   const [noticePermission, setNoticePermission] = useState<boolean>()
   const validateView = useRef<any>();
   const [typeArr, setTypeArrow] = useState<string>("STRAIGHT")
@@ -154,14 +153,14 @@ export default () => {
     // }
     if ((step === "DONE" || result === "DONE") && !!info) {
       _refValidateVideo.current = info
-      const { current } = _refValidateVideo
-      let data = {
-        current
-      }
-      if (!!saveInfoEkyc) saveInfoEkyc({
-        ...data_info_ekyc,
-        imgVideo: data
-      })
+      // const { current } = _refValidateVideo
+      // let data = {
+      //   current
+      // }
+      // if (!!saveInfoEkyc) saveInfoEkyc({
+      //   ...data_info_ekyc,
+      //   imgVideo: data
+      // })
       try {
         validateView.current.stopRecord()
         validateView.current.stopCamera()
@@ -170,12 +169,12 @@ export default () => {
     }
 
     if (!!_refValidateVideo.current) {
-      const { current } = _refValidateVideo
+      // const { current } = _refValidateVideo
       setTimeout(() => {
-        if (!!saveInfoEkyc) saveInfoEkyc({
-          ...data_info_ekyc,
-          imgVideo: current
-        })
+        // if (!!saveInfoEkyc) saveInfoEkyc({
+        //   ...data_info_ekyc,
+        //   imgVideo: current
+        // })
         navigation.dispatch(StackActions.replace("VideoResult", { img_video: _refValidateVideo.current }))
       }, 1000);
     }

@@ -9,7 +9,8 @@ type ContextProps = {
   },
   ekyc: EkycType,
   setEkyc ?: (value : EkycType) => void,
-  saveInfoEkyc ?: (value : any) => void
+  saveInfoEkyc ?: (value : any) => void,
+  onDoneEkyc?: () => void
 };
 
  interface EkycType {
@@ -56,7 +57,7 @@ const initInfoEkyc = {
 
 export const CommonContext = React.createContext<Partial<ContextProps>>({});
 
-export const CommonProvider = ({ children, token }: any) => {
+export const CommonProvider = ({ children, token,onDoneStepFullEkyc }: any) => {
   const [ekyc, setEkyc] = useState<EkycType>(initStateEkyc)
   const [data_info_ekyc, setDataInfoEkyc] = useState(initInfoEkyc)
   const _setEkyc = useCallback((value : EkycType) => {
@@ -75,7 +76,8 @@ export const CommonProvider = ({ children, token }: any) => {
         setEkyc : _setEkyc,
         saveInfoEkyc : _saveInfoEkyc,
         ekyc,
-        data_info_ekyc
+        data_info_ekyc,
+        onDoneEkyc : onDoneStepFullEkyc
       }}>
       {children}
     </CommonContext.Provider>

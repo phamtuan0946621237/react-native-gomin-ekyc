@@ -53,7 +53,7 @@ const App = (props: Propype) => {
   return (
     <>
       <ClientContextProvider client={Client}>
-        <CommonProvider token={state}>
+        <CommonProvider token={state} onDoneStepFullEkyc={() => console.log("hehehehe")}>
           <Navigation />
         </CommonProvider>
       </ClientContextProvider>

@@ -4,7 +4,7 @@
  */
 
 import { useNavigation } from '@react-navigation/native';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useContext } from 'react';
 import { Animated, Image, StatusBar, useWindowDimensions } from 'react-native';
 import {
   back_black_ic,
@@ -20,6 +20,7 @@ import { colors, styleText } from '../../theme';
 import { UIBUtton, UILabel, UIScrollView, UIView } from '../../theme/element';
 import { TabBarSize } from '../../util';
 import { createStyles } from './style';
+import { CommonContext } from '../../CommonProvider';
 
 const note = [
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -53,14 +54,16 @@ export default () => {
   const style = createStyles();
   const [shadown] = useState(new Animated.Value(0))
   const Animation: any = Animated.View
-
+  const {onDoneEkyc} = useContext(CommonContext)
 
   const _onBack = useCallback(() => {
     navigation.navigate("Main")
   }, []);
 
   const _onClickLinked = useCallback(async () => {
-    navigation.navigate('IdentifyTutorial')
+    if (!!onDoneEkyc)onDoneEkyc()
+    return 
+    // navigation.navigate('IdentifyTutorial')
   }, [])
 
   const _handleScroll = useCallback((event: any) => {

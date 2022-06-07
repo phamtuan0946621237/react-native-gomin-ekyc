@@ -6,17 +6,12 @@ lib ekyc
 
 ```sh
 npm install react-native-gomin-ekyc
+add config ekyc https://git.fiin.vn/fiin-ocr/ekyc-sdk
+add react-native-permission
 ```
 
 ## Usage
 
-```js
-import { multiply } from "react-native-gomin-ekyc";
-
-// ...
-
-const result = await multiply(3, 7);
-```
 
 ## Contributing
 

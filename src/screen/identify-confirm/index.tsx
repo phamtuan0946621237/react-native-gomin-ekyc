@@ -13,7 +13,7 @@ import { colors, styleText } from '../../theme';
 import { UIBUtton, UILabel, UIScrollView, UIView } from '../../theme/element';
 import Step from './step';
 import { createStyles } from './style';
-import { CommonContext } from 'src/CommonProvider';
+import { CommonContext } from '../../CommonProvider';
 export default () => {
   const navigation = useNavigation()
   const style = createStyles()

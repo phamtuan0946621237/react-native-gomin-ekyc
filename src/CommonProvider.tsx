@@ -8,7 +8,7 @@ type ContextProps = {
     imgVideo?: any
   },
   ekyc: EkycType,
-  setEkyc ?: (value : any) => void,
+  setEkyc ?: (value : EkycType) => void,
   saveInfoEkyc ?: (value : any) => void
 };
 
@@ -59,21 +59,11 @@ export const CommonContext = React.createContext<Partial<ContextProps>>({});
 export const CommonProvider = ({ children, token }: any) => {
   const [ekyc, setEkyc] = useState<EkycType>(initStateEkyc)
   const [data_info_ekyc, setDataInfoEkyc] = useState(initInfoEkyc)
-  const _setEkyc = useCallback((value : string) => {
-    setEkyc((pre : any) => {
-      return {
-        ...pre,
-        value
-      }
-    })
+  const _setEkyc = useCallback((value : EkycType) => {
+    setEkyc(value)
   },[])
   const _saveInfoEkyc = useCallback((value) => {
-    setDataInfoEkyc((pre : any) => {
-      return {
-        ...pre,
-        value
-      }
-    })
+    setDataInfoEkyc(value)
   },[])
 
   console.log("ekyc_context_libb ::",ekyc)

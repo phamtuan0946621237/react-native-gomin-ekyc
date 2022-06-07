@@ -160,10 +160,7 @@ export default () => {
       }
       if (!!saveInfoEkyc) saveInfoEkyc({
         ...data_info_ekyc,
-        imgVideo: {
-          type: 'video',
-          data
-        }
+        imgVideo: data
       })
       try {
         validateView.current.stopRecord()
@@ -177,10 +174,7 @@ export default () => {
       setTimeout(() => {
         if (!!saveInfoEkyc) saveInfoEkyc({
           ...data_info_ekyc,
-          imgVideo: {
-            type: 'video',
-            current
-          }
+          imgVideo: current
         })
         navigation.dispatch(StackActions.replace("VideoResult", { img_video: _refValidateVideo.current }))
       }, 1000);

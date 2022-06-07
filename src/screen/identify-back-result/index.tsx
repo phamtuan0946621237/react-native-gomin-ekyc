@@ -137,10 +137,7 @@ export default () => {
         }
         if (!!saveInfoEkyc) saveInfoEkyc({
           ...data_info_ekyc,
-          imgBack: {
-            type: 'back',
-            data
-          }
+          imgBack: data
         })
         setNextStep(false)
         break;

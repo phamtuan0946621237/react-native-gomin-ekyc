@@ -30,10 +30,7 @@ export default () => {
     const data = route?.img_video?.imageStraightFile
     if (!!saveInfoEkyc) saveInfoEkyc({
       ...data_info_ekyc,
-      imgVideo: {
-        type: 'video',
-        data
-      }
+      imgVideo: data
     })
   }, [route,data_info_ekyc])
   // action 

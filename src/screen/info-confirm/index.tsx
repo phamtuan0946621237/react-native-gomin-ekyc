@@ -58,6 +58,8 @@ export default () => {
     showLoading(loading)
   }, [loading])
 
+  console.log("data_info_ekyc?.imgVideo :::",data_info_ekyc?.imgVideo)
+
   // action
   const _onClickUseImage = useCallback(async () => {
     var request = new FormData();

@@ -70,11 +70,6 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
 
         ```java
         <uses-permission android:name="android.permission.CAMERA" />
-        ```
-
-        To enable `video recording` feature you have to add the following code to the `AndroidManifest.xml`:
-
-        ```java
         <uses-permission android:name="android.permission.RECORD_AUDIO"/>
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />

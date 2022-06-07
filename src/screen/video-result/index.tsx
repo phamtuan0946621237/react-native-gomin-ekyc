@@ -23,16 +23,19 @@ export default () => {
   const navigation = useNavigation()
   const style = createStyles()
   const route = useRoute().params as { img_video: RouteType }
-  const { saveInfoEkyc } = useContext(CommonContext)
+  const { saveInfoEkyc,data_info_ekyc } = useContext(CommonContext)
 
 
   useMemo(() => {
     const data = route?.img_video?.imageStraightFile
     if (!!saveInfoEkyc) saveInfoEkyc({
-      type: 'video',
-      data
+      ...data_info_ekyc,
+      imgVideo: {
+        type: 'video',
+        data
+      }
     })
-  }, [route])
+  }, [route,data_info_ekyc])
   // action 
   const _goBack = () => {
     navigation.dispatch(StackActions.replace('Video'))

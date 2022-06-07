@@ -35,7 +35,7 @@ export default () => {
   };
   const { loading, mutate, payload } = useMutation(checkIdentify);
   const [nextStep, setNextStep] = useState<boolean>();
-  const { setEkyc, saveInfoEkyc } = useContext(CommonContext)
+  const { setEkyc, saveInfoEkyc, data_info_ekyc } = useContext(CommonContext)
   useEffect(() => {
     _onClickUseImage()
   }, [])
@@ -111,7 +111,7 @@ export default () => {
       type: 'multipart/form-data'
     });
 
-    
+
 
     let { payload } = await mutate(request);
     switch (payload?.success) {
@@ -136,8 +136,11 @@ export default () => {
           ton_giao
         }
         if (!!saveInfoEkyc) saveInfoEkyc({
-          type: 'back',
-          data
+          ...data_info_ekyc,
+          imgFront: {
+            type: 'back',
+            data
+          }
         })
         setNextStep(false)
         break;
@@ -151,7 +154,7 @@ export default () => {
       default:
         break;
     }
-  }, [route, ekyc, access_token]);
+  }, [route, ekyc, access_token, data_info_ekyc]);
 
   return (
     <UIView style={style.container}>

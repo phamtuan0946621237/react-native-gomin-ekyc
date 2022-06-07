@@ -27,7 +27,7 @@ export default () => {
   //variable
   const navigation = useNavigation()
   const style = createStyles()
-  const { setEkyc, saveInfoEkyc, access_token, ekyc } = useContext(CommonContext)
+  const { setEkyc, saveInfoEkyc, access_token, ekyc,data_info_ekyc } = useContext(CommonContext)
   const route = useRoute().params as {
     image_front: {
       type?: string,
@@ -125,9 +125,13 @@ export default () => {
           quoc_tich
         }
         console.log("data____FRONT ::::",data)
+       
         if (!!saveInfoEkyc) saveInfoEkyc({
-          type: 'front',
-          data
+          ...data_info_ekyc,
+          imgFront: {
+            type: 'front',
+            data
+          }
         })
        
         if (!!setEkyc) setEkyc({
@@ -150,7 +154,7 @@ export default () => {
       default:
         break
     }
-  }, [route, ekyc, access_token])
+  }, [route, ekyc, access_token,data_info_ekyc])
 
   // layout
   const _buildItem = useCallback((label: string, title: string) => {

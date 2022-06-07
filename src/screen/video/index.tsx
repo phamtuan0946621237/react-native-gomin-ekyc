@@ -26,7 +26,7 @@ export default () => {
   const { width } = useWindowDimensions()
   const navigation = useNavigation()
   const style = createStyles()
-  const { saveInfoEkyc } = useContext(CommonContext)
+  const { saveInfoEkyc,data_info_ekyc } = useContext(CommonContext)
   const [noticePermission, setNoticePermission] = useState<boolean>()
   const validateView = useRef<any>();
   const [typeArr, setTypeArrow] = useState<string>("STRAIGHT")
@@ -159,8 +159,11 @@ export default () => {
         current
       }
       if (!!saveInfoEkyc) saveInfoEkyc({
-        type: 'video',
-        data
+        ...data_info_ekyc,
+        imgVideo: {
+          type: 'video',
+          data
+        }
       })
       try {
         validateView.current.stopRecord()
@@ -173,8 +176,11 @@ export default () => {
       const { current } = _refValidateVideo
       setTimeout(() => {
         if (!!saveInfoEkyc) saveInfoEkyc({
-          type: 'video',
-          current
+          ...data_info_ekyc,
+          imgVideo: {
+            type: 'video',
+            current
+          }
         })
         navigation.dispatch(StackActions.replace("VideoResult", { img_video: _refValidateVideo.current }))
       }, 1000);

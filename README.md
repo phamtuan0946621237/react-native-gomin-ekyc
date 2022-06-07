@@ -9,21 +9,25 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
 ## setting
 * iOS
     - Podfile : 
+        ```java
         permissions_path = '../node_modules/react-native-permissions/ios'
         pod 'RNEkyc', :path => '../node_modules/react-native-ekyc-sdk'
         pod 'Permission-Camera', :path => "#{permissions_path}/Camera"
         pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone"
+        ```
     
 
     - Info.plist : 
-    <key>NSCameraUsageDescription</key>
-	<string>Cần truy cập máy ảnh của bạn để chụp thêm ảnh và cập nhật ảnh hồ sơ.</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Cần truy cập micro của bạn để sử dụng tính năng</string>
+        ```java
+        <key>NSCameraUsageDescription</key>
+        <string>Cần truy cập máy ảnh của bạn để chụp thêm ảnh và cập nhật ảnh hồ sơ.</string>
+        <key>NSMicrophoneUsageDescription</key>
+        <string>Cần truy cập micro của bạn để sử dụng tính năng</string>
+        ```
 
-    - Workaround for use_frameworks! issues If you use use_frameworks!, add this at the top of your Podfile, and uncomment the line corresponding to your CocoaPods version:
+    # Workaround for use_frameworks! issues If you use use_frameworks!, add this at the top of your Podfile, and uncomment the line corresponding to your CocoaPods version:
+        ```java
         use_frameworks!
-        # Convert all permission pods into static libraries
         pre_install do |installer|
         Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
 
@@ -37,6 +41,7 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
             end
         end
         end
+        ```
 
     => pod install
 

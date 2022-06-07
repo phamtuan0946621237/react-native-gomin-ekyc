@@ -24,8 +24,7 @@ lib ekyc
         <string>Cần truy cập micro của bạn để sử dụng tính năng</string>
         ```
 
-    ##### Workaround for use_frameworks! issues If you use use_frameworks!, add this at the top of your Podfile, and uncomment the line corresponding to your CocoaPods version:
-        ```java
+    #### Workaround for use_frameworks! issues If you use use_frameworks!, add this at the top of your Podfile, and uncomment the line corresponding to your CocoaPods version:
         use_frameworks!
         pre_install do |installer|
         Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
@@ -40,7 +39,6 @@ lib ekyc
             end
         end
         end
-        ```
 
     => pod install
 

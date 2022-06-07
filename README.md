@@ -7,9 +7,12 @@ lib ekyc
 **yarn**: `yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git`
 ## setting
 * iOS
-    - platform :ios, '11.0'
     - Podfile : 
         ```java
+        platform :ios, '11.0'
+
+
+        
         permissions_path = '../node_modules/react-native-permissions/ios'
         pod 'RNEkyc', :path => '../node_modules/react-native-ekyc-sdk'
         pod 'Permission-Camera', :path => "#{permissions_path}/Camera"

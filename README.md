@@ -57,6 +57,7 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
             ...
         }
     - android/app/build.gradle :
+        ```java
             android {
                 ...
                 aaptOptions { 
@@ -64,10 +65,8 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
                     noCompress "lite"
                 }
             }    
-    To use the camera,
-
-        1) On Android you must ask for camera permission:
-
+            ```
+    - AndroidManifest.xml :     
         ```java
         <uses-permission android:name="android.permission.CAMERA" />
         <uses-permission android:name="android.permission.RECORD_AUDIO"/>

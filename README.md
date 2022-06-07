@@ -4,8 +4,7 @@ lib ekyc
 
 ## Installation
 
-yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
-
+**yarn**: `yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git`
 ## setting
 * iOS
     - Podfile : 

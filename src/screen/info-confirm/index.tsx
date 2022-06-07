@@ -28,7 +28,7 @@ export default () => {
   //variable
   const navigation = useNavigation();
   const style = createStyles();
-  const { ekyc, data_info_ekyc, access_token, setEkyc } = useContext(CommonContext)
+  const { ekyc, data_info_ekyc, access_token, setEkyc,onDoneEkyc } = useContext(CommonContext)
   const { loading, mutate } = useMutation(checkVideoEkyc)
   const infoFirst: Array<InfoType> = useMemo(() => {
     let { id_card, ho_ten, ngay_sinh, gioi_tinh, front_ngay_het_han, que_quan, ho_khau_thuong_tru } = data_info_ekyc?.imgFront || {};
@@ -84,9 +84,15 @@ export default () => {
           img: data_info_ekyc?.imgVideo
         },
       });
-      console.log(
-        "DONE_LIB"
-      )
+      // console.log(
+      //   "DONE_LIB"
+      // )
+      if (!!onDoneEkyc)onDoneEkyc({
+        dataSuccess : payload?.data,
+        data_info_ekyc,
+        ekyc
+      })
+    // return 
       // setTimeout(() => {
       //   navigation.reset({
       //     index: 0,
@@ -102,7 +108,7 @@ export default () => {
         message: payload?.message
       })
     }
-  }, [data_info_ekyc, ekyc, access_token])
+  }, [data_info_ekyc, ekyc, access_token,onDoneEkyc])
 
   // layout
   return (

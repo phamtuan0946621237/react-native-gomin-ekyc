@@ -2,16 +2,17 @@ import React, { useState, useCallback } from 'react';
 // import { EkycType } from './type/index'
 type ContextProps = {
   access_token?: string,
-  data_info_ekyc?: {
-    imgFront?: any,
-    imgBack?: any,
-    imgVideo?: any
-  },
+  data_info_ekyc?: DataInfoType,
   ekyc: EkycType,
   setEkyc ?: (value : EkycType) => void,
   saveInfoEkyc ?: (value : any) => void,
-  onDoneEkyc?: () => void
+  onDoneEkyc?: (value ?: any) => void 
 };
+interface DataInfoType {
+    imgFront?: any,
+    imgBack?: any,
+    imgVideo?: any
+}
 
  interface EkycType {
   image_front?: {
@@ -67,7 +68,6 @@ export const CommonProvider = ({ children, token,onDoneStepFullEkyc }: any) => {
     setDataInfoEkyc(value)
   },[])
 
-  console.log("data_info_ekyc_context_lib :::::",data_info_ekyc)
 
   return (
     <CommonContext.Provider

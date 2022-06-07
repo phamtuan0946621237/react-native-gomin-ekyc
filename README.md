@@ -25,7 +25,7 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
         <string>Cần truy cập micro của bạn để sử dụng tính năng</string>
         ```
 
-    ### Workaround for use_frameworks! issues If you use use_frameworks!, add this at the top of your Podfile, and uncomment the line corresponding to your CocoaPods version:
+    ##### Workaround for use_frameworks! issues If you use use_frameworks!, add this at the top of your Podfile, and uncomment the line corresponding to your CocoaPods version:
         ```java
         use_frameworks!
         pre_install do |installer|

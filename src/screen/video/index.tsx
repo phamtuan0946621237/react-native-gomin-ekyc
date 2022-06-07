@@ -270,7 +270,7 @@ export default () => {
     return (
       <UIView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <UILottieView
-          source={require("../../../../assets/lottie/loading.json")}
+          source={require("../../../assets/lottie/loading.json")}
           autoPlay
           loop
           style={style.lottie}

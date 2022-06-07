@@ -120,7 +120,6 @@ export default () => {
         ? PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE
         : PERMISSIONS.IOS.PHOTO_LIBRARY;
     let resCheck = await check(per);
-    console.log("resCheck ::", resCheck)
     if (resCheck == RESULTS.DENIED) {
       resCheck = await request(per);
     }

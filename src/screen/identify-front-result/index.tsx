@@ -124,13 +124,6 @@ export default () => {
           ngay_het_han,
           quoc_tich
         }
-        console.log("data____FRONT ::::",{
-          ...data_info_ekyc,
-          imgFront: {
-            type: 'front',
-            data
-          }
-        })
        
         if (!!saveInfoEkyc) saveInfoEkyc({
           ...data_info_ekyc,

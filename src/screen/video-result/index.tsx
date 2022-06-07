@@ -24,7 +24,6 @@ export default () => {
   const style = createStyles()
   const route = useRoute().params as { img_video: RouteType }
   const { saveInfoEkyc,data_info_ekyc } = useContext(CommonContext)
-  console.log("VIDEO_RESULT_SCREEN")
 
   useMemo(() => {
     const data = route?.img_video?.imageStraightFile

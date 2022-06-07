@@ -116,7 +116,6 @@ export default () => {
     let { payload } = await mutate(request);
     switch (payload?.success) {
       case true:
-        // filumAnalytics.track('OCR Back Succeeded');
         if (!!setEkyc) setEkyc({
           ...ekyc,
           image_back: {

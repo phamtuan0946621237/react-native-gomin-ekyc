@@ -9,7 +9,6 @@ import { Image, StatusBar } from 'react-native';
 import { ValidateCardView } from "react-native-ekyc-sdk";
 import { back_white_ic } from '../../../assets';
 import { Button } from '../../components/app';
-// import { TouchableOpacity } from '../../components/core';
 import { styleText } from '../../theme';
 import { UIBUtton, UILabel, UIView } from '../../theme/element';
 import { CameraType } from '../../type/index';
@@ -43,8 +42,6 @@ export default () => {
       return
     if (result === "IMAGE_BACK") {
       _refValidateCard.current.type = result
-      // setTakePhotoAuto(true)
-      // if (isEnabled === true) _captureButtonPress(validateCardView.current)
     }
     if (imageDataFile !== undefined) {
       _refValidateCard.current.img = imageDataFile

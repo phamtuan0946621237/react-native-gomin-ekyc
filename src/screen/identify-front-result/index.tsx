@@ -110,7 +110,6 @@ export default () => {
       type: 'multipart/form-data'
     });
     request.append("token", access_token);
-    console.log("request_front_lib :::",request)
     let { payload } = await mutate(request)
     switch (payload?.success) {
       case true:

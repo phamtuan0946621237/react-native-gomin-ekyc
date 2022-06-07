@@ -89,11 +89,6 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
     import {ekyc} from 'react-native-gomin-ekyc'
 
 
-    - ekyc(token,callback)
-        + token để call api
-        + callback : () => void ---------> trả về khi done toàn bộ luồng ekyc
-
-
     const EkycStack = ({token}: {token ?: string}) => {
         const onDoneStepFullEkyc = (value : any) => {
             console.log("Success : any",value)
@@ -101,11 +96,17 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
         return ekyc(token,onDoneStepFullEkyc)
     }
 
-
     <Stack.Navigator>
         ...
         <Stack.Screen name="EkycStack" component={() => <EkycStack token={props?.token} />} options={{ title: 'Home' }} />
     </Stack.Navigator>
+
+
+    ekyc(token,callback)
+            - token : lấy token để call api ekyc
+            - callback : (value) => void => trả ra 1 hàm khi done toàn bộ luồng ekyc
+                => value : gồm connectToken + thông tin của ekyc
+
 
     
 

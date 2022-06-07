@@ -102,10 +102,13 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
     </Stack.Navigator>
 
 
-    ekyc(token,callback)
+##  Luu ý : 
+    ```java
+        - ekyc(token,callback)
             - token : lấy token để call api ekyc
             - callback : (value) => void => trả ra 1 hàm khi done toàn bộ luồng ekyc
                 => value : gồm connectToken + thông tin của ekyc
+    ```
 
 
     

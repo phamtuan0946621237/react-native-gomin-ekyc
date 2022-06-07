@@ -42,11 +42,14 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
 
 * ANDROID
     - settings.gradle : 
-        include ':react-native-ekyc-sdk'
-        project(':react-native-ekyc-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ekyc-sdk/android')
-        include ':ocr-sdk'
-        project(':ocr-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ekyc-sdk/android/ocr-sdk')
-    - build.gradle : 
+        ```java
+            include ':react-native-ekyc-sdk'
+            project(':react-native-ekyc-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ekyc-sdk/android')
+            include ':ocr-sdk'
+            project(':ocr-sdk').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-ekyc-sdk/android/ocr-sdk')
+        ```
+    - build.gradle :
+        ```java
         dependencies {
             implementation fileTree(dir: "libs", include: ["*.jar"])
             //noinspection GradleDynamicVersion
@@ -56,6 +59,7 @@ yarn add git+https://github.com/phamtuan0946621237/react-native-gomin-ekyc.git
 
             ...
         }
+        ```
     - android/app/build.gradle :
         ```java
             android {

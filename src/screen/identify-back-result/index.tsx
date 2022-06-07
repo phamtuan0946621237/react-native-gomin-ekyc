@@ -137,7 +137,7 @@ export default () => {
         }
         if (!!saveInfoEkyc) saveInfoEkyc({
           ...data_info_ekyc,
-          imgFront: {
+          imgBack: {
             type: 'back',
             data
           }

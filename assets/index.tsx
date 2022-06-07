@@ -1,6 +1,7 @@
 
 // image
 export const arrow_right_ic = require('./imgs/arrow_right_ic.png') // 
+export const arr_right_white_ic = require('./imgs/arr_right_white_ic.png') // 
 
 export const back_white_ic = require('./imgs/back_white_ic.png') //  //// 
 export const background_identify_result = require('./imgs/background_identify_result.png') // 
@@ -8,6 +9,7 @@ export const back_black_ic = require('./imgs/back_black_ic.png') //
 
 export const cmnd_ic = require('./imgs/cmnd_ic.png')
 export const camera_ic = require('./imgs/camera_ic.png') ////// 
+export const camera_white_ic = require('./imgs/camera_white_ic.png') // 
 
 export const deposit_to_invest_ic = require('./imgs/deposit_to_invest_ic.png')
 

@@ -8,7 +8,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Image, Platform, StatusBar } from 'react-native';
 import { ValidateCardView } from "react-native-ekyc-sdk";
 import { check, openSettings, PERMISSIONS, request, RESULTS } from 'react-native-permissions';
-import { back_black_ic, back_white_ic, camera_ic } from '../../../assets';
+import { back_black_ic, back_white_ic, camera_ic,lottieLoading } from '../../../assets';
 import { Button } from '../../components/app';
 import Header from '../../components/core/header';
 import { colors, styleText } from '../../theme';
@@ -232,7 +232,7 @@ export default () => {
         alignItems: 'center', justifyContent: 'center'
       }}>
         <UIAnimationView
-          source={require('../../../assets/lottie/loading.json')}
+          source={lottieLoading)}
           autoPlay
           loop style={{ width: 250, height: 250, alignSelf: 'center' }} />
       </UIView>

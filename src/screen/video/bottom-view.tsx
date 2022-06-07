@@ -5,6 +5,7 @@ import { } from 'react-native-svg'
 import { styleText } from '../../theme'
 import { UILabel, UIView } from '../../theme/element'
 import { createStyles } from './style'
+import {lottieArr} from '../../../assets'
 const UIAnimatedLottieView: any = LottieView
 interface PropsType {
     captureButtonPress?: () => void,
@@ -29,7 +30,7 @@ const BottomView = (props?: PropsType) => {
                             <UIView style={{ width: 100, height: 70 }}>
                                 {props?.typeArr === "LEFT" &&
                                     <UIAnimatedLottieView
-                                        source={require("../../../assets/lottie/arr.json")}
+                                        source={lottieArr}
                                         autoPlay
                                         loop
                                         style={{
@@ -48,7 +49,7 @@ const BottomView = (props?: PropsType) => {
                             <UIView style={{ width: 100, height: 70 }}>
                                 {props?.typeArr === "RIGHT" &&
                                     <UIAnimatedLottieView
-                                        source={require("../../../assets/lottie/arr.json")}
+                                        source={lottieArr}
                                         autoPlay
                                         loop
                                         style={style.lottie}

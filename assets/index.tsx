@@ -37,5 +37,7 @@ export const tutorial_take_CMND1 = require('./imgs/tutorial_take_CMND1.png')
 export const tutorial_take_CMND2 = require('./imgs/tutorial_take_CMND2.png')
 export const tutorial_take_CMND3 = require('./imgs/tutorial_take_CMND3.png')
 
-
+export const lottieArr = require('./lottie/arr.json')
+export const lottieCount = require('./lottie/count4.json')
+export const lottieLoading = require('./lottie/loading.json')
 

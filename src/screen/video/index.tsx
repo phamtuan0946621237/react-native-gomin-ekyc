@@ -9,7 +9,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Platform, StatusBar, useWindowDimensions } from 'react-native';
 import { RecordFaceView } from "react-native-ekyc-sdk";
 import { check, openSettings, PERMISSIONS, request, RESULTS } from "react-native-permissions";
-import { face_left_ic, face_right_ic, face_straigth_ic } from '../../../assets';
+import { face_left_ic, face_right_ic, face_straigth_ic,lottieCount,lottieLoading } from '../../../assets';
 import { UIView } from '../../theme/element';
 import { StepVideoResponse } from '../../type/index';
 import { calcFontSize } from '../../util';
@@ -269,7 +269,7 @@ export default () => {
     return (
       <UIView style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <UILottieView
-          source={require("../../../assets/lottie/loading.json")}
+          source={lottieLoading}
           autoPlay
           loop
           style={style.lottie}
@@ -291,7 +291,7 @@ export default () => {
       {isShow === true &&
         <UIView style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0, justifyContent: 'center', alignItems: 'center' }}>
           <UILottieView
-            source={require("../../../assets/lottie/count4.json")}
+            source={lottieCount}
             autoPlay
             loop
             style={{ width: width / 1.2 }}

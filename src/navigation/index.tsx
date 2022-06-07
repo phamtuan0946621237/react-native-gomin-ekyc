@@ -9,6 +9,12 @@ import IdentifyBackResult from '../screen/identify-back-result';
 import IdentifyFront from '../screen/identify-front';
 import IdentifyFrontResult from '../screen/identify-front-result';
 import IdentifyConfirm from '../screen/identify-confirm';
+
+import VideoTutorial from '../screen/video-tutorial';
+import Video from '../screen/video';
+import VideoResult from '../screen/video-result';
+import InfoConfirm from '../screen/info-confirm';
+
 const Stack: any = createStackNavigator<any>();
 
 export default () => {
@@ -27,6 +33,10 @@ export default () => {
       <Stack.Screen name="IdentifyBack" component={IdentifyBack} options={{ title: 'IdentifyBack' }} />
       <Stack.Screen name="IdentifyBackResult" component={IdentifyBackResult} options={{ title: 'IdentifyBackResult' }} />
       <Stack.Screen name="IdentifyConfirm" component={IdentifyConfirm} options={{ title: 'IdentifyConfirm' }} />
+      <Stack.Screen name="VideoTutorial" component={VideoTutorial} options={{ title: 'VideoTutorial' }} />
+      <Stack.Screen name="Video" component={Video} options={{ title: 'Video' }} />
+      <Stack.Screen name="VideoResult" component={VideoResult} options={{ title: 'VideoResult' }} />
+      <Stack.Screen name="InfoConfirm" component={InfoConfirm} options={{ title: 'InfoConfirm' }} />
     </Stack.Navigator>
   )
 }

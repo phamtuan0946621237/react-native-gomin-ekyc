@@ -32,7 +32,7 @@ export default () => {
       ...data_info_ekyc,
       imgVideo: data
     })
-  }, [route,data_info_ekyc])
+  }, [route])
   // action 
   const _goBack = () => {
     navigation.dispatch(StackActions.replace('Video'))
